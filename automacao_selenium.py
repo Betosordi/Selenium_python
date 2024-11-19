@@ -44,19 +44,19 @@ service = Service(executable_path=caminho_webdriver)
 driver_iniciar = webdriver.Chrome(service=service)
 
 # Abre a página de login
-driver_iniciar.get("https://mofoculos.hiper.com.br/#/login")
+driver_iniciar.get("link da página da web")
 ######################################################################################################
 time.sleep(5)
 
 # Simulando comandos na pagina
 # Campo de usuario
 campo_usuario = driver_iniciar.find_element(By.XPATH, "/html/body/app-root/div[3]/app-tela-login/div/form/div/div[1]/app-input/div/div/div[2]/input")
-campo_usuario.send_keys("dti")
+campo_usuario.send_keys("seu usuario")
 time.sleep(5)
 #-------------------------------------------------------------------------------------------------
 # Campo de senha
 campo_senha = driver_iniciar.find_element(By.XPATH, "/html/body/app-root/div[3]/app-tela-login/div/form/div/div[2]/app-input/div/div/div[2]/input")
-campo_senha.send_keys("sC@D3r")
+campo_senha.send_keys("sua senha")
 time.sleep(5)
 #-------------------------------------------------------------------------------------------------
 # Localizando o botão de login usando o XPath e clicando
@@ -139,7 +139,7 @@ mes_atual_nome = meses[mes_atual]
 
 # Transformando o que copiei da tag table-responsive em um arquivo csv.
 # Definir o caminho onde o arquivo será salvo
-caminho_arquivo = f"C:/Users/supor/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"  # Substitua pelo caminho desejado
+caminho_arquivo = f"C:/Users/seu usuario/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"  # Substitua pelo caminho desejado
 
 # Converter o conteúdo para formato CSV (opcional, dependendo do formato do conteúdo)
 # Assumindo que as colunas são separadas por tabulação e as linhas por quebras de linha
@@ -154,7 +154,7 @@ with open(caminho_arquivo, "w", encoding="utf-8", newline="") as arquivo_csv:
 ###########################################################################################################################################
 
 # Acrescenta a coluna Mês no dataframe
-caminho_dos_meses = f"C:/Users/supor/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"
+caminho_dos_meses = f"C:/Users/seu usuario/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"
 
 mes = pd.read_csv(caminho_dos_meses,sep = ';')
 
@@ -162,7 +162,7 @@ mes = pd.read_csv(caminho_dos_meses,sep = ';')
 mes['Mês'] = mes_atual_nome
 
 # Salvando o dataframe
-caminho_salvar = f"C:/Users/supor/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"
+caminho_salvar = f"C:/Users/seu usuario/Meu Drive/Dados para BI/vendas_{mes_atual_nome}_{ano_atual}.csv"
 
 mes.to_csv(caminho_salvar, sep = ';')
 ######################################################################################################################################
@@ -170,7 +170,7 @@ mes.to_csv(caminho_salvar, sep = ';')
 # Unificando os arquivos dos meses
 
 # Caminho onde estão os arquivos
-caminho_dos_arquivos = f"C://Users/supor/Meu Drive/Dados para BI"
+caminho_dos_arquivos = f"C://Users/seu usuario/Meu Drive/Dados para BI"
 
 # Criar uma lista para armazenar os DataFrames
 lista_dataframes = []
@@ -188,7 +188,7 @@ for arquivo in os.listdir(caminho_dos_arquivos):
 # Unificar todos os DataFrames em um único
 df_unificado = pd.concat(lista_dataframes, ignore_index=True)
 
-caminho_para_salvar = f"C:/Users/supor/Meu Drive/Dados para BI/Dados unificados/vendas_franquiados.csv"
+caminho_para_salvar = f"C:/Users/seu usuario/Meu Drive/Dados para BI/Dados unificados/vendas_franquiados.csv"
 
 df_unificado['Número de vendas'] = df_unificado['Número de vendas'].astype(str)
 df_unificado['Quantidade vendida'] = df_unificado['Quantidade vendida'].astype(str)
